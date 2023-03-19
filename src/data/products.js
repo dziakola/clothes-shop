@@ -6,10 +6,10 @@ const productsData = [
     basePrice: 20,
     colors: ['blue', 'red', 'green'],
     sizes: [
-      { name: 'S', additionalPrice: 0 },
-      { name: 'M', additionalPrice: 5 },
-      { name: 'L', additionalPrice: 6 },
-      { name: 'XL', additionalPrice: 8 }
+      { names: 'S', additionalPrice: 0 },
+      { names: 'M', additionalPrice: 5 },
+      { names: 'L', additionalPrice: 6 },
+      { names: 'XL', additionalPrice: 8 }
     ]
   },
   {
@@ -19,10 +19,10 @@ const productsData = [
     basePrice: 25,
     colors: ['white', 'black', 'red'],
     sizes: [
-      { name: 'S', additionalPrice: 0 },
-      { name: 'M', additionalPrice: 2 },
-      { name: 'L', additionalPrice: 3 },
-      { name: 'XL', additionalPrice: 4 }
+      { names: 'S', additionalPrice: 0 },
+      { names: 'M', additionalPrice: 2 },
+      { names: 'L', additionalPrice: 3 },
+      { names: 'XL', additionalPrice: 4 }
     ]
   }
 ];
