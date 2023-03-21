@@ -2,7 +2,6 @@ import { useState } from 'react';
 import productsData from '../../data/products';
 import Product from '../Product/Product';
 
-
 const Products = () => {
   const [products]  = useState(productsData);
   const [shoppingCart, setShoppingCart] = useState('');
@@ -11,15 +10,12 @@ const Products = () => {
       for(let product in cart){
         console.log(product, cart[product]); 
       }
-      
     }
-  
   }
   
   const addProdutToShoppingCart = newProduct => {
     setShoppingCart([...shoppingCart, {id: newProduct.id, title: newProduct.title, size: newProduct.size, color: newProduct.color, price: newProduct.price}]);
   }
-  
   
   return (
     <section>
