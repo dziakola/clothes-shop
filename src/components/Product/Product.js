@@ -1,5 +1,5 @@
 import styles from './Product.module.scss';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ProductOptions from '../ProductOptions/ProductOptions';
 import ProductImage from '../ProductImage/ProductImage';
 
@@ -8,18 +8,19 @@ const Product = props => {
   const [currentSize, setSize] = useState(`${props.sizes[0].names}`);
   
 
-  const getPrice = () => {
+  const getPrice = useMemo(() => { 
     for(let size of props.sizes){
       if(size.names === currentSize){
-      return props.basePrice + size.additionalPrice
+      return props.basePrice + size.additionalPrice;
       }
     }
-  }
+  },[currentSize, props.sizes, props.basePrice]);
+
   const addToShoppingCart = (e) => {
     //w koszyku ma się znaleźć: nazwa produktu, cena końcowa, wybrane opcje
     //jeśli id produktu równa się id produktu klikniętego buttona to:
       e.preventDefault();
-      props.action({id:props.id, title: props.title, size: currentSize, color: currentColor, price: getPrice(), })
+      props.action({id:props.id, title: props.title, size: currentSize, color: currentColor, price: getPrice, })
   }
   
   return (
@@ -28,7 +29,7 @@ const Product = props => {
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
-          <span className={styles.price}>{`${getPrice()}$`}</span>
+          <span className={styles.price}>{`${getPrice}$`}</span>
         </header>
          <ProductOptions 
           action={addToShoppingCart} 
